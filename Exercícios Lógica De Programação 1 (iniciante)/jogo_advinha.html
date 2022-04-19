@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Advinhação</title>
+</head>
+
+<body>
+    <!-- Pedimos para o computador "pensar" em um número aleatório por meio do Math.random() e multiplicamos esse valor por 100, assim, teremos um número entre 0 e 100. Por fim, arredondamos o valor para obtermos um número inteiro. -->
+    <script>
+        function pulaLinha() {
+            document.write("<br>");
+        };
+
+        function mostra(frase) {
+            document.write(frase);
+            pulaLinha();
+        };
+        
+        var chute = parseInt(prompt("Já pensei. Qual você acha que é?"));
+        //Math.round(Math.random() * 100); (função antiga), 
+        //coloque entre "()" o numero que quiser.
+        var numeroPensado = sorteia(10); 
+        
+        if (chute == numeroPensado) {
+            mostra("Uau! Você acertou, pois eu pensei no " + numeroPensado);
+        } else {
+            mostra("Você errou! Eu tinha pensado no " + numeroPensado);
+        };
+        // Até aqui o código foi fornecido.
+
+        
+        // DESAFIOS
+        // 1 - Você pode criar uma função sorteia que recebe um número n e sorteia um número entre 0 a n, retornando esse valor. Dessa forma, em vez de escrever var numeroPensado = Math.round(Math.random() * n);, você escreveria var numeroPensado = sorteia(n);. Faça essa modificação, criando a nova função e utilize-a.
+        
+        // 2 - Faça com que seu jogo mostre, quando o usuário errar a tentativa, se o número que ele chutou era maior ou menor ao número pensado pelo programa.
+        
+        function sorteia(n) {
+            return Math.round(Math.random() * n)
+        };
+        
+        if (chute != numeroPensado && chute > numeroPensado) {
+            mostra("O número que você escolheu é maior que o número pensado")
+        } else if (chute != numeroPensado && chute < numeroPensado){
+            mostra("O número que você escolheu é menor que o número pensado")
+        };
+    </script>
+</body>
+
+</html>

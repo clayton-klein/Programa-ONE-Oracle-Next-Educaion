@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocando de cor</title>
+</head>
+
+<body>
+    <!-- Exercício
+    
+    Vamos permitir que o usuário altere a cor da bolinha que é desenhada na tela. As cores serão obrigatoriamente blue, red e green. Veja que temos uma lista de cores. e isso deve remetê-lo à aula de array.
+
+    Como essa escolha será feita? A cada clique do botão DIREITO do mouse, a cor padrão, que é blue, deverá se tornar red. Se o usuário clicar mais uma vez com o botão DIREITO, a cor escolhida deverá ser green, nessa ordem. Por fim, se clicarmos novamente, voltamos para a cor blue e repetirmos a ordem de seleção de cores.
+
+    Obs: com o botão ESQUERDO faremos os cliques para as bolinhas aparecerem.
+
+    É claro que lhe darei uma dica, pois não ensinei a você a associar a execução de uma função ao clique do botão direito do mouse. O evento responsável por isso é o oncontextmenu. Para você começar bem, crie um programa com o código anterior e faça um teste desse evento conforme meu exemplo:
+
+    Recarregue o programa e experimente clicar com o botão direito na tela. A mensagem "Funcionou!" será exibida. Não estranhe a última linha com a instrução return false. Ela é importante para que o menu contextual padrão do canvas não seja exibido, ou seja, queremos apenas trocar de cor com o clique do botão e não exibir um menu para o usuário.
+
+    Vale a pena quebrar a cabeça com esse exercício. Não estou preocupado que você escreva o código mais lindo do universo, mas que combine diversas coisas que aprendeu até agora nesse exercício. -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0, 0, 600, 400);
+        
+        function desenhaCirculo(evento) {
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            // aqui altereia cor fixa azul para receber um valor dinâmico.
+            pincel.fillStyle = cores[index]; 
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+            console.log(x + ',' + y);
+        }
+
+        let cores = ['blue', 'red', 'green'];
+        // variável utilizada para armazenar um número que será utilizado como índice doarray "cores".
+        let index = 0; 
+        function mudaCor() {
+            index++;
+            //  reset das cores.
+            if (index >= cores.length) {
+                index = 0;
+            }
+            // necessário para o click do botão direito não abra o menu.
+            return false;
+        }
+
+        tela.onclick = desenhaCirculo;
+
+        tela.oncontextmenu = mudaCor;
+    </script>
+</body>
+</html>

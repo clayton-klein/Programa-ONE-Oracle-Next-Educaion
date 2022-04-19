@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo Diferença De Idade</title>
+</head>
+
+<body>
+    <script>
+        //Quantos anos você tem de diferença do seu irmão?
+
+        // Escreva um programa que exiba a mensagem "Nossa diferença de idade é", concatenando o resultado da subtração da sua idade com a do seu irmão (ou de um amigo). A resposta pode dar negativa, sem dúvida. Não esqueça de usar as funções pulaLinha e mostra e inclusive a tag <meta> para resolver problema de acentuação.
+
+        function pulaLinha() {
+            document.write("<br>")
+        };
+
+        function mostra(idade1, idade2) {
+            document.write("Eu tenho " + idade1 + " anos.");
+            pulaLinha();
+            document.write("Meu irmão tem " + idade2 + " anos.");
+            pulaLinha();
+            pulaLinha();
+            document.write("Nossa difereça de idade é: " + (idade1 - idade2), " anos.");
+        };
+
+        let minhaIdade = 35;
+        let idadeIrmao = 40;
+        
+        mostra(minhaIdade, idadeIrmao);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu código nunca é executado?</title>
+</head>
+
+<body>
+    <!-- Tânia escreveu um pequeno trecho de código que imprime todas as parcelas do cartão que ainda precisa pagar: -->
+    <!-- O problema é que o trecho de código acima exibe apenas "FIM", ou seja, parece que nem chega a executar a instrução dentro do for.
+    Qual é o problema do código anterior? -->
+<script>
+    var parcelas = [10.40, 40.00, 100.18, 200];
+    for(var i = 0; i < parcelas.lenght; i=i + 1) { 
+        document.write(parcelas[i]);
+     } 
+
+     document.write("FIM");
+</script>
+    <!-- Resposta: a instrução "length" está escrita de forma incorreta (lenght), isso é um erro comum. -->
+</body>
+</html>

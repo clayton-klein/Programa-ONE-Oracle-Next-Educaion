@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Era uma vez uma bolinha que virou um bolão!</title>
+</head>
+
+<body>
+    <!-- Dessa vez, quero propor algo diferente. Quando clicarmos na tela pressionando a tecla SHIFT, vamos desenhar uma bolinha acrescida de 20 ao seu raio. Se soltarmos a tecla e clicarmos, ela voltará com seu raio que hoje é 10.
+
+    Você deve estar se perguntando como saber se o usuário está pressionando a tecla SHIFT, certo? Você lembra que uma função passada para o evento onclick tem acesso às coordenadas do ponteiro do mouse? Pois é, além de sabermos as coordenadas, podemos perguntar também se a tecla SHIFT está pressionada usando evento.shiftKey. Se for true, é porque ela está sendo pressionada, se for false, é porque não foi.
+
+    Você deve testar a condição dentro da função desenhaCirculo. -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0, 0, 600, 400);
+
+        function desenhaCirculo(evento) {
+            let raio = 10; // variavel para conter um valor dinâmico de raio.
+            // se a tecla shift estiver sendo pressionada aumente o raio em 20.
+            if(evento.shiftKey) {
+                raio = raio + 20;
+            };
+
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14); // aqui substituí o 10 original pela variavel raio.
+            pincel.fill();
+            console.log(x + ',' + y);
+        }
+
+        tela.onclick = desenhaCirculo;
+    </script>
+
+</body>
+
+</html>

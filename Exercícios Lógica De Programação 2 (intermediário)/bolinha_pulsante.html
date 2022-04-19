@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolinha Pulsante</title>
+</head>
+<body>
+
+    <!-- Sua tarefa será fazer uma bolinha pulsar, ou seja, seu raio deve ter tamanho mínimo de 20 e tamanho máximo de 30. 
+    
+    Sendo assim, de 20 até 30, o raio deve ser incrementado de um em um e quando o valor do raio ultrapassar o máximo, ele deve sofrer um decremento de um. 
+    
+    Contudo, fique alerta, pois se o raio se tornar menor que 20, devemos voltar a incrementá-lo e assim por diante. 
+    
+    Para um efeito mais pomposo, use 20 milissegundos na taxa de atualização da tela. -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        //desenhar quadro
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'lightgray';
+        pincel.fillRect(0, 0, 600, 400);
+
+        function desenhaCirculo(x, y, raio, cor) {
+            pincel.fillStyle = cor;
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+
+        function limpaTela() {
+            pincel.clearRect(0, 0, 600, 400);
+            pincel.fillStyle = 'lightgray';
+            pincel.fillRect(0, 0, 600, 400);
+        }
+
+        let raio = 20; //inicializa o tamanho da bolinha
+        let tamanhoRaio = 1; //controla tamanho do raio da bolinha
+        function bolinhaPulsante() {
+            limpaTela();
+
+            if (raio > 30) { //se o raio for maior que 30
+                tamanhoRaio = -1; //inverter valor de "tamanhoRaio" e começar decrementar
+            } else if (raio < 20) { //se o raio ficar menor q 20 (tamanho minimo)
+                tamanhoRaio = 1; //inverter valor de "tamanhoRaio" e voltar incrementar
+            };
+
+            desenhaCirculo(300, 200, raio, 'red');
+
+            raio = raio + tamanhoRaio; //raio receberá a si mesmo + incremento ou decremento
+        }
+
+        setInterval(bolinhaPulsante, 20);
+    </script>
+</body>
+</html>

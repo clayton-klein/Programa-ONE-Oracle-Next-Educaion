@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O bolão que deseja emagrecer!</title>
+</head>
+
+<body>
+    <!-- Obs: este exercício é continuacao do exercicio "aumenta_bolinha2.hmtl".
+        
+        Você deve ter ficado tão incomodado quanto eu, porque a bolinha só cresce até tomar conta da tela inteira. 
+         
+        Uma das coisas que podemos melhorar é limitar o tamanho de crescimento das bolinhas, ou seja, quero combinar com você que o raio não pode ultrapassar 40. 
+        
+        Além disso, se o usuário clicar na tela com a tecla ALT pressionada, o raio deve diminuir 5. Para saber se a tecla ALT está pressionada, fazemos evento.altKey. 
+        
+        ATENÇÃO: o decremento do raio deverá ser de 5 em 5 e o tamanho mínimo da bolinha deve ser de 10 que é o tamanho original. 
+
+        IMPORTANTE: SE voce usa Linux, use "evento.ctrlKey" no lugar de "evento.altKey", isso porque o ALT no linux ativa o menu
+    -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0, 0, 600, 400);
+
+        let raio = 10; 
+        function desenhaCirculo(evento) {
+            // limitar o raio a no maximo tamando 40 clicando shift.
+            if(evento.shiftKey && raio < 40) { 
+                raio = raio + 10;
+            // limitar a diminuicao a no minimo 10 clicando Ctrl (eu uso Linux).    
+            } else if(evento.ctrlKey && raio > 10) { 
+                raio = raio - 5; 
+            };
+                                   
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14); 
+            pincel.fill();
+            console.log(x + ',' + y);
+        }
+                
+        tela.onclick = desenhaCirculo;
+    </script>
+</body>
+</html>

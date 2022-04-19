@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Era uma vez um bolão que quase explodiu!</title>
+</head>
+
+<body>
+    <!-- Obs: este exercicio é sequencia do exercicio aumenta bolinha.
+    
+    Quero propor uma mudança nesse código que é a seguinte: toda vez que o usuário clicar na tela com o SHIFT pressionado, vamos somar 10 ao valor do raio atual. Sendo assim, mesmo soltando o SHIFT as próximas bolinhas utilizarão o mesmo valor de raio. Se clicarmos diversas vezes segurando SHIFT teremos uma bola cada vez maior. -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0, 0, 600, 400);
+
+        let raio = 10; // variavel retirada da funcao para ela nao ser resetada a cada chamada.
+
+        function desenhaCirculo(evento) {
+            if(evento.shiftKey) {
+                raio = raio + 10; // alteracao para incrementar em 10 ao inves de 20.
+            };
+
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * 3.14); 
+            pincel.fill();
+            console.log(x + ',' + y);
+        }
+                
+        tela.onclick = desenhaCirculo; // funcao invocada ao clicar com o mouse no canvas
+        
+    </script>
+
+</body>
+
+</html>

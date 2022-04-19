@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movendo a bolinha pelo teclado</title>
+</head>
+
+<body>
+    
+    <!-- E se fôssemos capazes de mudar o valor de x e y pelo teclado? Se a cada 20 milissegundos a tela é atualizada e a função desenhaCirculo sempre utiliza as variáveis x e y, qualquer mudança nesses valores pelo teclado fará com que o círculo desenhado mude de posição.
+
+    Identificando qual tecla foi pressionada:
+    Em JavaScript, existe o evento onkeydown, que permite identificar qual tecla está pressionada. Esse evento é o único capaz de identificar também as setas do teclado. Contudo, até agora todos os eventos que associamos foi com nossa tela, mas dessa vez quem deve responder ao evento é document. E document, nosso oráculo que sabe tudo o que a página possui, é o cara que fica escutando ao teclado. Então, vou alterar o código e criar a função leDoTeclado e associá-la ao document através do evento onkeydown.
+
+    A função leDoTeclado será chamada toda vez que uma tecla for pressionada. Mas para podermos identificar as setas do teclado, precisamos saber qual é seu código correspondente. Isso porque na função leDoTeclado podemos acessar evento.keyCode. O evento.keyCode traz o código da tecla que foi pressionada. Vamos declarar quatro variáveis que guardam os códigos que correspondem às nossas setinhas.
+
+    Obs: Cada tecla possui um KeyCode (código de tecla) respectivo e isso foi catalogado em uma tabela. Essa tabela deve ser usada pelos navegadores web para que usem os mesmos valores.
+
+    Estamos quase lá. Outra coisa importante é que a taxa de atualização de x e y seja 10, isto é, toda vez que teclarmos com a seta esquerda, por exemplo, precisamos subtrair -10 do valor de x atual. Se teclarmos a seta direita, precisamos incrementar +10 com o x atual. A mesma lógica se aplica ao eixo y.
+
+    Então, vamos declarar a variável chamada taxa, que guarda o valor do incremento dos eixos.
+
+    Agora você está com a faca e o queijo na mão. Termine a função leDoTeclado, que deve testar cada tecla pressionada e atualizar x e y de acordo com a tecla. -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        // desenha o quadro
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'lightgray';
+        pincel.fillRect(0, 0, 600, 400);
+
+        function desenhaCirculo(x, y, raio) {
+            pincel.fillStyle = 'red';
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+
+        //a bolinha anterior deve ser apagada da tela antes de desenhar a nova
+        function limpaTela() {
+            pincel.clearRect(0, 0, 600, 400);
+            pincel.fillStyle = 'lightgray';
+            pincel.fillRect(0, 0, 600, 400);
+        }
+        
+        //valotes iniciais dos eixos X e Y
+        var x = 20;
+        var y = 20;
+
+        //desenha a bolinha na tela
+        function atualizaTela() {
+            limpaTela();
+            desenhaCirculo(x, y, 10);
+        }
+
+        setInterval(atualizaTela, 20);
+
+        // códigos das setas do teclado
+        var esquerda = 37;
+        var cima = 38;
+        var direita = 39;
+        var baixo = 40;
+        // taxa de movimento eixos X e Y
+        let taxa = 10;
+        function leDoTeclado(evento) {
+            // a cada seta pressionada os eixos X e Y são alterados conforme abaixo
+            // para movimentar a bolinha, se o "keyCode" for igual o de alguma seta
+            // a bolinha se moverá.
+            if(evento.keyCode == esquerda) {
+                x = x - taxa;
+            } else if(evento.keyCode == direita) {
+                x = x + taxa;
+            } else if(evento.keyCode == cima) {
+                y = y - taxa;
+            } else if(evento.keyCode == baixo) {
+                y = y + taxa;
+            };
+        };
+        //evento que será acionado a cada tecla do teclado pressionada.
+        document.onkeydown = leDoTeclado;
+    </script>
+</body>
+</html>

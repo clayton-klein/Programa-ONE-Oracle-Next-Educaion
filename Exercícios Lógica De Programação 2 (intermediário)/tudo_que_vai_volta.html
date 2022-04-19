@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tudo que vai volta!</title>
+</head>
+
+<body>
+
+    <!-- Altere o código para que o círculo, assim que chegar no canto direito da tela, volte. No final, o círculo deve ficar indo e voltando eternamente. Existem várias formas de se conseguir esse resultado, assim como tudo no universo da programação. -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'lightgray';
+        pincel.fillRect(0, 0, 600, 400);
+
+        function desenhaCirculo(x, y, raio) {
+            pincel.fillStyle = 'purple';
+            pincel.beginPath();
+            pincel.arc(x, y, raio, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+
+        function limpaTela() {
+            pincel.clearRect(0, 0, 600, 400);
+            pincel.fillStyle = 'lightgray';
+            pincel.fillRect(0, 0, 600, 400);
+        }
+        // controla o movimento do eixo X (horizontal) da bolinha.
+        var x = 0; 
+        // controla o sentido que a bolinha irá se mover.
+        var sentido = 1; 
+        function animaBolinha() {
+            limpaTela();
+            // antes de desenhar verificar se precisamos alterar o sentido da bolinha.
+            // se "x" passar de 600 (limite máx do quadro)
+            if (x > 600) {
+                // mudar o valor e começar a decrementar "x" fazendo a bolinha voltar 
+                sentido = -1;
+                // se "x" for menor que 0 (limite minimo do quadro) 
+            } else if (x < 0) {
+                // mudar valor e incrementar "x" fazendo a bolinha seguir em frente 
+                sentido = 1; 
+            }
+
+            desenhaCirculo(x, 20, 10);
+            // altera "x" de acordo com a variável "sentido"
+            // que pode incrementar ou decrementar o valor de "x"
+            // fazendo a bolinha ir para frente ou voltar. 
+            x = x + sentido; 
+        }
+
+        setInterval(animaBolinha, 10);
+
+        //Obs: eu não consegui solucionar este exercicio sozinho,
+        //precisei ver a resposta do professor, deixo aqui como exemplo.
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhando com o mouse.</title>
+</head>
+
+<body>
+
+    <!-- O desafio agora é o seguinte. Se andarmos com o ponteiro do mouse sobre a tela enquanto o botão esquerdo é pressionado, vamos desenhar um círculo. Isso significa que enquanto não soltarmos o botão esquerdo, desenharemos um círculo ao lado do outro, que na verdade dará um efeito que estamos passando um pincel na tela. Se soltarmos o botão esquerdo, o ato de mover o mouse sob a tela não deverá desenhar nada. No final, queremos um efeito parecido com ferramentas como Paint Brush ou Photoshop, que permite o usuário desenhar na tela.
+
+    O evento do JavaScript que permite capturar o movimento do mouse, e logo sua coordenada, é o onmousemove, contudo esse evento não é capaz de saber se o botão do mouse está clicando ou não. E agora?
+
+    Existem os eventos, onmousedown e onmouseup. O primeiro é disparado toda vez que o botão esquerdo do mouse é pressionado e o segundo quando ele é solto. Sendo assim, de alguma maneira, nossa função desenhaCirculo só pode desenhar na tela se o botão estiver pressionado, se não estiver, nada acontecerá.
+
+    E agora, como resolver? DICA: as funções passadas para onmousedown e onmouseup podem alterar o valor de uma variável, que será usada por desenhaCirculo para saber se ele desenhará ou não um círculo. -->
+
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0, 0, 600, 400);
+
+        let desenhar = false; // flag para controlar quando desehar.
+        // aqui a antiga funcao desenhaCirculo foi atribuida ao evento "onmousemove".    
+        tela.onmousemove = function(evento) { 
+            if (desenhar) { // se desenhar for true entao execute o bloco (desenhe).
+                var x = evento.pageX - tela.offsetLeft;
+                var y = evento.pageY - tela.offsetTop;
+                pincel.fillStyle = 'blue';
+                pincel.beginPath();
+                pincel.arc(x, y, 10, 0, 2 * 3.14);
+                pincel.fill();
+                console.log(x + ',' + y);
+            };
+        };
+        // enquanto manter o clique do mouse a flag sera true e ira desenhar.
+        tela.onmousedown = function() {
+            desenhar = true;
+        };
+        // quando soltar o clique do mouse ira parar de desenhar.
+        tela.onmouseup = function() { 
+            desenhar = false;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenhando Com Cores</title>
+</head>
+
+<body>
+
+    <!-- Obs: este exercicio é continuacao do exercicio "desenhando com mouse".
+    O que achou do exercício que permitia desenhar na tela? A única coisa chata é que só podíamos desenhar na cor azul. Que tal o usuário poder escolher de uma paleta a cor que desejar?
+
+    Agora, vamos adicionar um input em nossa página logo após o canvas. No mundo HTML, existe o input do tipo color, que ao ser clicado exibe uma paleta de cores para podermos selecionar:
+
+    Recarregue a página e experimente clicar no novo elemento que será exibido na página. Automaticamente será exibido uma paleta de cores. Escolha uma cor qualquer. Escolheu? Quando você escolhe uma cor, o input sabe a cor que você guardou e podemos perguntar para ele. -->
+
+    <canvas width="600" height="400"></canvas>
+    <br>
+    Escolha uma cor: <input type="color">
+
+    <script>
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+        pincel.fillStyle = 'grey';
+        pincel.fillRect(0, 0, 600, 400);
+        
+        let desenha = false;
+        function desenhaCirculo(evento) {
+            let paleta = document.querySelector('input'); // selecionar o elemento input de cores no HTML.
+            let paletaCor = paleta.value; // variavel para guardar o valor do elemento input de cores.
+
+            if (desenha) {
+                var x = evento.pageX - tela.offsetLeft;
+                var y = evento.pageY - tela.offsetTop;
+                pincel.fillStyle = paletaCor; //onde o valor da variavel que contem a cor do input sera utilizado para mudar a cor das bolinhas.
+                pincel.beginPath();
+                pincel.arc(x, y, 10, 0, 2 * 3.14);
+                pincel.fill();
+            }
+            console.log(x + ',' + y);
+        }
+
+        tela.onmousemove = desenhaCirculo;
+
+        function Desenhar() {
+            desenha = true;
+        }
+
+        function pararDesenhar() {
+            desenha = false;
+        }
+
+        tela.onmousedown = Desenhar;
+
+        tela.onmouseup = pararDesenhar;
+    </script>
+</body>
+</html>

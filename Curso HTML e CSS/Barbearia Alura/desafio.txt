@@ -1,0 +1,2 @@
+Neste curso as páginas foram sendo desenvolvidas com orientação do professor, 
+o desafio final foi deixar as páginas produtos.html e contato.html responsivas.

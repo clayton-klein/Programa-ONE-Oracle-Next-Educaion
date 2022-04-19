@@ -1,0 +1,12 @@
+Illustration by <a href="https://icons8.com/illustrations/author/541847">Murat Kalkavan</a> from <a href="https://icons8.com/illustrations">Ouch!</a>
+
+
+
+
+SELO LINKEDIN: 
+// incluir este script primeiro
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+// depois incluir o selo
+<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="clayton-klein" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://br.linkedin.com/in/clayton-klein?trk=profile-badge">Clayton Klein</a></div>
+              
