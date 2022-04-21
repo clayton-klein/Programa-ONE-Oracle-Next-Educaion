@@ -36,9 +36,14 @@ header {
 
 header a {
     display: block;
-    align-self: flex-end;
-    width: 10%;
-    margin-bottom: 9px;
+    align-self: center;
+    width: 12%;
+    margin: 9px;
+}
+
+.logo-alura {
+    width: 50%;
+    padding: 2px;
 }
 
 header h1 {
@@ -49,22 +54,19 @@ header h1 {
     margin: 10px 0;
 }
 
-.logo-alura {
-    width: 50%;
-    padding: 2px;
-    vertical-align: top;
-    background-color: aliceblue;
-}
 
 main {
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .texto-input {
-    width: 100%;
+    font-family: var(--font-orbitron);
+    font-size: 1rem;
+    margin: 10px;
+    width: 95%;
     height: 25vh;
+    border: none;
 }
-
 
 .regras-uso {
     margin: 5px;
@@ -98,6 +100,7 @@ button {
 .botoes-input{
     display: flex;
     justify-content: space-around;
+    font-size: 1rem;
 }
 
 .btn-criptografar {
@@ -117,24 +120,38 @@ button {
     font-size: 0.7rem;
 }
 
+.btn-copiar {
+    margin-bottom: 10px;
+    background-color: var(--azul-escuro);
+    color: var(--azul-claro);
+}
+
 .texto-output {
-    display: none;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 30vh;
-    background-color: #A7D0D9;
+    height: 25vh;
+    margin: 10px;
+}
+
+.texto-output textarea {
+    border: none;
+
 }
 
 .no-message {
+    margin: 10px;
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .no-message img {
     display: block;
     width: 45%;
+    margin: 10px;
 }
 
 footer {
