@@ -74,7 +74,7 @@ main {
     width: 95%;
     height: 25vh;
     border: none;
-    outline: 2px dashed var(--salmao);
+    outline-color: var(--salmao);
     background-color: var(--branco-suave);
 }
 
@@ -124,6 +124,10 @@ button {
 }
 
 .box-output {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 30vh;
     display: flex;
@@ -131,32 +135,32 @@ button {
 }
 
 .btn-copiar {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background-color: var(--azul-escuro);
     color: var(--azul-claro);
 }
 
 .texto-output {
     display: flex;
-    flex-direction: column; 
-    width: 100%;
-    margin: 10px;
     display: none;
+    flex-direction: column; 
+    width: 98%;
+    border: none;
+    height: 25vh;
+    background-color: var(--azul-medio);
 }
 
-.texto-output textarea {
+.text-area-output {
     border: none;
-    outline: 2px dashed var(--salmao);
-    height: 25vh;
     background-color: var(--branco-suave);
 }
 
 .no-message {
-    margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 10px;
     background-color: var(--branco-suave);
 }
 
@@ -201,11 +205,6 @@ a:visited {
         width: 97.5%;
     }
 
-    button {
-        font-size: 2rem;
-        padding: 20px 95px;
-    }
-
     .regras-uso {
         font-size: 0.9rem;
         margin-left: 10px;
@@ -213,6 +212,20 @@ a:visited {
     
     .exclamacao {
         font-size: 0.5rem;
+    }
+    
+    button {
+        font-size: 2rem;
+        padding: 20px 95px;
+    }
+
+    .texto-output {
+        margin-top: 25px;
+        background-color: var(--azul-medio);
+    }
+
+    .text-area-output {
+        background-color: var(--branco-suave);
     }
 
     .no-message img {
@@ -222,30 +235,95 @@ a:visited {
 
 /* Config PC's */
 @media screen and (min-width: 940px) {
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+
+    header {
+        margin-bottom: 30px;
+    }
+    
     .logo-alura {
         width: 30%;
     }
 
+    .input {
+        width: 89%;
+    }
+
     .texto-input {
         flex-direction: row;
-        width: 45%;
+        width: 89%;
+        margin-left: 0px;
+        height: 50vh;
+        border-radius: 5px;
+    }
+    
+    button {
+        padding: 20px 75px;
+        font-size: 1.5rem;
     }
 
+    button:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+    
+    .botoes-input {
+        width: 89%;
+        justify-content: space-between;
+    }
+    
     .box-output {
         flex-direction: row;
-        width: 45%;
+        width: 30%;
+        margin: 0px;
+        height: 70vh;
+    }
+    
+    .texto-output {
+        height: 70vh;
+        outline-style: none;
+        margin: 0px;
+        border: none;
+        background-color: var(--azul-medio);      
+    }
+    
+    .text-area-output {
+        outline-color: var(--salmao);
+        border-radius: 5px;
+        margin-top: 10px;
+        border: none;
+        height: 50vh;
+    }
+    
+    .no-message {
+        width: 276.335px;
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 0px;
+        margin-right: 0px;
+        height: 65vh;
+    }
+    
+    .no-message img {
+        width: 50%;
     }
 
-    button {
-        font-size: 1.5rem;
-        padding: 10px 30px;
+    .btn-copiar {
+        order: 1;
+        width: 100%;
+        margin-top: 30px;
+        margin-bottom: 0px;
     }
 
-    .botoes-input {
-        display: inline;
+    footer {
+        margin-top: 30px;
     }
 
     footer img {
-        width:5%;
+        width: 5%;
     }
 }
