@@ -25,7 +25,7 @@ body {
 }
 
 #container {
-    width: 940px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,6 @@ header h1 {
     margin: 10px 0;
 }
 
-
 main {
     background-color: var(--azul-medio);
 }
@@ -76,6 +75,12 @@ main {
     border: none;
     outline-color: var(--salmao);
     background-color: var(--branco-suave);
+    word-wrap: break-word;
+}
+
+.texto-input::placeholder {
+    text-align: center;
+    line-height: 165px;
 }
 
 .regras-uso {
@@ -86,7 +91,7 @@ main {
 }
 
 .regras-uso span {
-    margin-right: 1px;
+    margin-right: 4px;
 }
 
 .exclamacao {
@@ -141,18 +146,21 @@ button {
 }
 
 .texto-output {
-    display: flex;
     display: none;
     flex-direction: column; 
     width: 98%;
     border: none;
     height: 25vh;
     background-color: var(--azul-medio);
-}
+}   
 
 .text-area-output {
+    font-family: var(--font-orbitron);
+    font-size: 1.5rem;
     border: none;
     background-color: var(--branco-suave);
+    outline-color: var(--salmao);
+    word-wrap: normal;
 }
 
 .no-message {
@@ -205,6 +213,11 @@ a:visited {
         width: 97.5%;
     }
 
+    .texto-input::placeholder {
+        text-align: center;
+        line-height: 250px;
+    }
+
     .regras-uso {
         font-size: 0.9rem;
         margin-left: 10px;
@@ -224,10 +237,6 @@ a:visited {
         background-color: var(--azul-medio);
     }
 
-    .text-area-output {
-        background-color: var(--branco-suave);
-    }
-
     .no-message img {
         width: 35%;
     }
@@ -235,9 +244,13 @@ a:visited {
 
 /* Config PC's */
 @media screen and (min-width: 940px) {
-    main {
-        display: flex;
-        flex-direction: row;
+    body {
+        background-color: var(--azul-escuro);
+    }
+
+    #container {
+        width: 70%;
+        background-color: var(--azul-medio);
     }
 
     header {
@@ -248,8 +261,14 @@ a:visited {
         width: 30%;
     }
 
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+
     .input {
         width: 89%;
+        margin-left: 20px;
     }
 
     .texto-input {
@@ -259,10 +278,22 @@ a:visited {
         height: 50vh;
         border-radius: 5px;
     }
+
+    .texto-input::placeholder {
+        text-align: center;
+        line-height: 330px;
+    }
     
     button {
-        padding: 20px 75px;
+        padding: 20px 68px;
         font-size: 1.5rem;
+    }
+
+    .regras-uso {
+        margin: 5px 5px 5px 0px;
+        font-size: 0.77rem;
+        font-weight: bold;
+        align-items: center;
     }
 
     button:hover {
@@ -278,7 +309,7 @@ a:visited {
     .box-output {
         flex-direction: row;
         width: 30%;
-        margin: 0px;
+        margin-right: 20px;
         height: 70vh;
     }
     
@@ -287,11 +318,9 @@ a:visited {
         outline-style: none;
         margin: 0px;
         border: none;
-        background-color: var(--azul-medio);      
     }
     
     .text-area-output {
-        outline-color: var(--salmao);
         border-radius: 5px;
         margin-top: 10px;
         border: none;
@@ -301,6 +330,7 @@ a:visited {
     .no-message {
         width: 276.335px;
         font-size: 1rem;
+        line-height: 1.3rem;
         text-align: center;
         border-radius: 5px;
         margin-top: 0px;
@@ -309,7 +339,7 @@ a:visited {
     }
     
     .no-message img {
-        width: 50%;
+        width: 95%;
     }
 
     .btn-copiar {
