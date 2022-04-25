@@ -16,7 +16,7 @@
 
 font-family: Arial, Helvetica, sans-serif;
 --font-ps2p: 'Press Start 2P', cursive;
---font-bangers: 'Bangers', cursive;
+--font-bangers: 'Bangers', arial;
 --font-orbitron: 'Orbitron', sans-serif;
 }
 
@@ -67,6 +67,7 @@ main {
 .texto-input {
     display: flex;
     flex-direction: column;
+    padding: 3px 0px 0px 10px;
     font-family: var(--font-orbitron);
     font-size: 1rem;
     margin: 10px;
@@ -80,7 +81,7 @@ main {
 
 .texto-input::placeholder {
     text-align: center;
-    line-height: 165px;
+    line-height: 160px;
 }
 
 .regras-uso {
@@ -110,6 +111,7 @@ button {
     border-radius: 10px;
     font-family: var(--font-bangers);
     padding: 10px 45px;
+    outline-color: var(--salmao);
 }
 
 .botoes-input{
@@ -147,7 +149,7 @@ button {
 
 .texto-output {
     display: none;
-    flex-direction: column; 
+    flex-direction: column;
     width: 98%;
     border: none;
     height: 25vh;
@@ -155,6 +157,7 @@ button {
 }   
 
 .text-area-output {
+    padding: 3px 0px 0px 10px;
     font-family: var(--font-orbitron);
     font-size: 1.5rem;
     border: none;
@@ -192,6 +195,7 @@ footer img {
 
 a {
     color: var(--salmao);
+    outline-color: var(--salmao);
 }
 
 a:visited {
@@ -281,7 +285,7 @@ a:visited {
 
     .texto-input::placeholder {
         text-align: center;
-        line-height: 330px;
+        line-height: 285px;
     }
     
     button {

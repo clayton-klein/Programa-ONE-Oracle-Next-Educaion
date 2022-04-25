@@ -24,14 +24,9 @@
 // **Extras:**
 // - Um botão que copie o texto criptografado/descriptografado para a área de transferência - ou seja, que tenha a mesma funcionalidade do `ctrl+C` ou da opção "copiar" do menu dos aplicativos.
 
-let letrasMinusculas = /[a-z]/gm;
-let letrasMaiusculas = /[A-Z]/gm;
-let caracteresEspeciais = /[\u0300-\u036f]/gm;
 
 let textoInput = document.querySelector('#textoInput');
-
 let imagemSemTexto = document.querySelector('#noMessage')
-
 let boxOutput = document.querySelector(".texto-output");
 let textoOutput = document.querySelector('#textoOutput');
 
@@ -43,28 +38,30 @@ btnCriptografar.addEventListener('click', criptografar);
 btnDescriptografar.addEventListener('click', descriptografar);
 btnCopiar.addEventListener('click', copiar);
 
+textoInput.focus();
+
+let regex = /^[a-z\s]+$/; //aceita somente letras minúsculas e sem acento, inclusive escritos em múltiplas linhas.
 function criptografar() {
     let mensagem = textoInput.value;
 
     if(!mensagem) {
         alert('Digite uma mensagem para ser criptografada');
         return;
-    };
-
-    if(mensagem == caracteresEspeciais) {
+    } else if( !regex.test(mensagem) ) {
         alert('Utilize somente letras minúsculas e sem acento.');
         textoInput.value = '';
+        textoInput.focus();
         return;  
+    } else {
+        // NÃO organizar por ordem alfabética, senão ocorre bug
+        // devido ao "i" de "ai" que será convertido novamente depois.
+        mensagem = mensagem.replaceAll('e', 'enter');
+        mensagem = mensagem.replaceAll('i', 'imes');
+        mensagem = mensagem.replaceAll('a', 'ai');
+        mensagem = mensagem.replaceAll('o', 'ober');
+        mensagem = mensagem.replaceAll('u', 'ufat');
     };
 
-    // NÃO organizar por ordem alfabética, senão ocorre bug
-    // devido ao "i" de "ai" que será convertido novamente depois.
-    mensagem = mensagem.replaceAll('e', 'enter');
-    mensagem = mensagem.replaceAll('i', 'imes');
-    mensagem = mensagem.replaceAll('a', 'ai');
-    mensagem = mensagem.replaceAll('o', 'ober');
-    mensagem = mensagem.replaceAll('u', 'ufat');
-    
     imagemSemTexto.style.display = 'none';
     boxOutput.style.display = 'flex';
     textoOutput.value = mensagem;
@@ -76,6 +73,7 @@ function descriptografar() {
 
     if(!mensagemSaida) {
         alert('Digite uma mensagem para ser descriptografada');
+        textoInput.focus();
         return;
     };
 
@@ -91,12 +89,12 @@ function descriptografar() {
     textoInput.value = '';
 };
 
-function copiar() {
-    let mensagemResultante = textoOutput.value;
-    navigator.clipboard.writeText(mensagemResultante);
+function copiar() { 
+    navigator.clipboard.writeText(textoOutput.value);
     textoOutput.value = '';
     boxOutput.style.display = 'none';
     imagemSemTexto.style.display = 'flex';
+    textoInput.focus();
 
     alert('Texto copiado')
 };
