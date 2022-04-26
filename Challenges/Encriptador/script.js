@@ -88,7 +88,7 @@ function descriptografar() {
     textoOutput.value = mensagemSaida;
     textoInput.value = '';
 };
-
+//preciso alterar, clipboard n funciona no meu cel
 function copiar() { 
     navigator.clipboard.writeText(textoOutput.value);
     textoOutput.value = '';
