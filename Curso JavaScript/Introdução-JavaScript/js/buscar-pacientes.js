@@ -1,3 +1,5 @@
+'use strict';
+
 let botaoAdicionarDaAPI = document.querySelector('#buscar-pacientes');
 
 botaoAdicionarDaAPI.addEventListener('click', function() {

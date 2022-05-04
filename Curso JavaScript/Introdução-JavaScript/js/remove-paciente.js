@@ -1,3 +1,5 @@
+'use strict';
+
 let tabela = document.querySelector('#tabela-pacientes');
 
 tabela.addEventListener('dblclick', function(event) {
