@@ -2,11 +2,11 @@ package bytebank;
 
 public class ContaTeste {
 	public static void main(String[] args) {
-		Conta contaClayton = new Conta();
-		contaClayton.titular = new Cliente();
-		contaClayton.titular.nome = "Clayton";
+		Conta contaClayton = new Conta(123, 456);
+		contaClayton.setTitular(new Cliente());
+		contaClayton.getTitular().setNome("Clayton");
 		
-		System.out.println(contaClayton.titular.nome);
+		System.out.println(contaClayton.getTitular().getNome());
 		
 	}
 }
