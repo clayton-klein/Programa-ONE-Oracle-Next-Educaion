@@ -1,6 +1,6 @@
-##Assuntos abordados no curso: 
+## Assuntos abordados no curso: 
 
-###Principais características da linguagem Java como:
+### Principais características da linguagem Java como:
 - orientado a objetos.
 - parecido com C++.
 - muitas bibliotecas e grande comunidade.
@@ -8,12 +8,12 @@
 - para executar o *Bytecode* é preciso ter a máquina virtual java.
 - o *Bytecode* é independente do sistema operacional.
 
-###Os principais componentes da plataforma Java que são:
+### Os principais componentes da plataforma Java que são:
 - Java Virtual Machine (JVM).
 - linguagem Java.
 - Bibliotecas Java (API).
 
-###Seguindo com:
+### Seguindo com:
 - qual é a diferença entre JRE e JDK.
 - como compilar um código fonte Java na linha de comando (`javac`).
 - como executar o Bytecode na linha de comando (`java`).
