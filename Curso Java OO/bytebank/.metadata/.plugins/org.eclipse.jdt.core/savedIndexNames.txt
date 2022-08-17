@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/home/csklein/Meus Projetos/Programa-ONE-Oracle-Next-Educaion-e-Alura/Curso Java OO/bytebank/.metadata/.plugins/org.eclipse.jdt.core
+715174930.index
+2949097923.index
+1865797976.index
