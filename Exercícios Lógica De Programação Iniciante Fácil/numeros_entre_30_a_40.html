@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todos os números entre 30 a 40, exceto 33 e 37!</title>
+  </head>
+
+  <body>
+    <!-- Que tal uma dificuldade um pouco maior? Imprima todos os números entre 30 e 40 (inclusive 30 e 40), porém os números 33 e 37 não devem ser impressos! No final escreva a palavra "FIM". Use o while para essa tarefa. DICA: o if pode ajudá-lo! -->
+    <script>
+      function pulaLinha() {
+        document.write("<br>");
+      }
+
+      function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+      }
+
+      let contador = 30;
+      while (contador >= 30 && contador <= 40) {
+        if (contador == 33) {
+          mostra(" ");
+        } else if (contador == 37) {
+          mostra(" ");
+        } else {
+          mostra(contador);
+        }
+
+        contador = contador + 1;
+      }
+
+      pulaLinha();
+      mostra("FIM.");
+    </script>
+  </body>
+</html>

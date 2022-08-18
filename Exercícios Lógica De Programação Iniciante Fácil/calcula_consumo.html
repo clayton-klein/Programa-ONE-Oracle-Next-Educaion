@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de consumo</title>
+  </head>
+  <body>
+    <!-- Problema: Seu carro tem um tanque de 40 litros. 
+    Com gasolina e usando todo o tanque você fez um caminhoComGasolina de 480 quilômetros. 
+    Qual é o consumoDeGasolina? 
+    Para calculá-lo, divida a distância percorrida pela quantidade de litros gastos. 
+    Imprima o valor utilizando document.write. 
+    Organize as contas em variáveis.
+
+    Com álcool, um tanque de 40 litros fez um caminhoComAlcool de 300 quilômetros. Qual é o consumoDeAlcool? -->
+
+    <h3>Álcool ou Gasolina?</h3>
+    <script>
+      let tanque = 40;
+
+      let caminhoComGasolina = 480;
+      let consumoDeGasolina = caminhoComGasolina / tanque;
+
+      document.write(
+        "O consumo com gasolina é: " + consumoDeGasolina + " km/L." + "<br>"
+      );
+
+      let caminhoComAlcool = 300;
+      let consumoDeAlcool = caminhoComAlcool / tanque;
+
+      document.write(
+        "O consumo com gasolina é: " + consumoDeAlcool + " km/L." + "<br>"
+      );
+    </script>
+  </body>
+</html>

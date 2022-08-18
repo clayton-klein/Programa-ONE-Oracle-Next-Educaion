@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Será que posso dirigir?</title>
+  </head>
+  <body>
+    <!-- Este programa, de acordo com a resposta do usuário, deve exibir a mensagem "Pode dirigir" ou "Não pode dirigir". Lembre-se que é permitido dirigir ao indivíduo com 18 anos ou mais e que também possua carteira de motorista.
+
+    Altere o programa para que ele responda com inteligência! -->
+    <script>
+      function pulaLinha() {
+        document.write("<br>");
+      }
+
+      function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+      }
+
+      var idade = parseInt(prompt("Qual é sua idade?"));
+      var temCarteira = prompt("Tem CNH? Responda S ou N");
+
+      // Meu código inicia aqui.
+      if (idade >= 18 && temCarteira == "S") {
+        mostra("Pode dirigir.");
+      } else {
+        mostra("Não pode drigir!");
+      }
+
+      // É possível melhorar este código fazendo uma pequena validação/verificação para os casos em que SE o input do usuário for diferente de S ou N (maiúsculas) aparecer um alerta de opção inválida.
+    </script>
+  </body>
+</html>
