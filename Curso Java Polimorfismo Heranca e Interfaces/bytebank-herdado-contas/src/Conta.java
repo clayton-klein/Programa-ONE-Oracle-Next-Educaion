@@ -1,24 +1,22 @@
-public class Conta {
-	private double saldo;
+public abstract class Conta {
+	protected double saldo; // protected = publico para os filhos.
 	private int agencia;
 	private int numeroCC;
 	private Cliente titular;
 	private static int total = 0;
 	
-	//constructor
+	// constructor
 	public Conta(int agencia, int numeroCC) {
 		this.agencia = agencia;
 		this.numeroCC = numeroCC;
-		//this.saldo = 100;//conta nova inicia com $100.
-		//System.out.println("Criando uma conta " + this.numeroCC);
-		total++;//ou Conta.total++
-		//System.out.println("O total de contas é " + Conta.total);
+		// this.saldo = 100;//conta nova inicia com $100.
+		// System.out.println("Criando uma conta " + this.numeroCC);
+		total++; // ou Conta.total++
+		// System.out.println("O total de contas é " + Conta.total);
 	}
 	
-	//class methods
-		public void deposita(double valor) {
-			this.saldo += valor;
-		}
+	// class methods
+		public abstract void deposita(double valor);
 		
 		public boolean saca(double valor) {
 			if(this.saldo >= valor) {
@@ -38,7 +36,7 @@ public class Conta {
 			return false;
 		}
 	
-	//getters and setters
+	// getters and setters
 	public double getSaldo() {
 		return this.saldo;
 	}
@@ -49,7 +47,7 @@ public class Conta {
 	public void setAgencia(int agencia) {
 		if(agencia <= 0) {
 			System.out.println("Não é permitido número negativo ou zero");
-			return; //encerra a função e retorna;
+			return; // encerra a função e retorna;
 		}
 		this.agencia = agencia;
 	}
@@ -60,7 +58,7 @@ public class Conta {
 	public void setNumeroCC(int numeroCC) {
 		if(numeroCC <= 0) {
 			System.out.println("Não é permitido número negativo ou zero");
-			return; //encerra a função e retorna;
+			return; // encerra a função e retorna;
 		}
 		this.numeroCC = numeroCC;
 	}

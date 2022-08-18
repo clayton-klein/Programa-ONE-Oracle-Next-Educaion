@@ -1,6 +1,6 @@
 public class TesteReferencias {
 
-    public static void main(String[] args) {
+	 public static void main(String[] args) {
 
         Gerente gerente = new Gerente();
         gerente.setNome("Clayton");

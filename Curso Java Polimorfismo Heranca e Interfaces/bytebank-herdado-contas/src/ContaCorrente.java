@@ -10,4 +10,9 @@ public class ContaCorrente extends Conta {
 		double valorASacar = valor + 0.2; // taxa de R$0,20 para saque
 		return super.saca(valorASacar);
 	}
+
+	@Override
+	public void deposita(double valor) {
+		super.saldo += valor;
+	}
 }

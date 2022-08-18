@@ -1,12 +1,12 @@
-public class Funcionario {
+// classe abstrata, não pode ser instanciada diretamente, apenas herdada.
+public abstract class Funcionario {
 
 	private String nome;
 	private String cpf;
 	private double salario;
 
-	public double getBonificacao() {
-		return this.salario * 0.1;
-	}
+	// método sem corpo, não há implementação, apenas a "assinatura" e as classes filhas são obrigadas implementar este métodos.
+	public abstract double getBonificacao();
 	
 	// getters and setters
 	public String getNome() {
