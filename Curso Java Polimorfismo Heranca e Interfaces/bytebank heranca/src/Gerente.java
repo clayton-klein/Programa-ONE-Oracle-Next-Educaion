@@ -2,7 +2,11 @@
 
 public class Gerente extends Funcionario implements Autenticavel {
 
-	private int senha;
+	private Autenticacao autenticador;
+	
+	public Gerente() {
+		this.autenticador = new Autenticacao();
+	}
 	
 	@Override // notação que avisa o compilador que esta classe será sobrescrita.
 	public double getBonificacao() {
@@ -11,15 +15,11 @@ public class Gerente extends Funcionario implements Autenticavel {
 	}
 	
 	public void setSenha(int senha) {
-		this.senha = senha;
+		this.autenticador.setSenha(senha);
 	}
 
 	public boolean autentica(int senha) {
-		if (this.senha == senha) {
-			return true;
-		} else {
-			return false;
-		}
+		return this.autenticador.autentica(senha);
 	}
 
 }
