@@ -1,8 +1,8 @@
 package br.com.bytebank.banco.modelo;
 
 public abstract class Conta {
-
-    protected double saldo;
+	
+    protected double saldo; // se este modificador "protected" for removido (ficar no default "package private" que é sem identificação de modificador), este atributo será inacessível na classe "ContaEspecial", pois não será mais visível para ela.
     private int agencia;
     private int numero;
     private Cliente titular;
@@ -13,7 +13,7 @@ public abstract class Conta {
         //System.out.println("O total de contas é " + Conta.total);
         this.agencia = agencia;
         this.numero = numero;
-        //this.saldo = 100;
+        this.saldo = 0;
         //System.out.println("Estou criando uma conta " + this.numero);
     }
 
