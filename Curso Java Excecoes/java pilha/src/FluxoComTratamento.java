@@ -1,6 +1,6 @@
 // classe criada para analisar a pilha de execução.
 
-public class Fluxo {
+public class FluxoComTratamento {
 
 	public static void main(String[] args) {
 		
@@ -8,10 +8,10 @@ public class Fluxo {
 		
 		try {	
 			metodo1();
-		} catch(ArithmeticException | NullPointerException ex) {
-			String msg = ex.getMessage();
+		} catch(Exception excecao) {
+			String msg = excecao.getMessage();
 			System.out.println("Exceção " + msg);
-			ex.printStackTrace();
+			excecao.printStackTrace();
 		}
 		
 		System.out.println("Fim do metodo MAIN");		
@@ -25,11 +25,13 @@ public class Fluxo {
 	
 	private static void metodo2() {
 		System.out.println("Inicio metodo2");
+		for(int i = 1; i <= 5; i++) {
+			System.out.println(i);
+			//int a = i/0; // aqui se descomentar dá uma exceção diferente
+			Conta c = null;
+			//c.deposita();
+		}
 		
-		ArithmeticException exception = new ArithmeticException("Deu ruim!"); // é possível passar uma mensagem personalizada de erro como parâmetro da exceção.
-		// ou diretamente throw new ArithmeticException();
-		throw exception;
-		
-		//System.out.println("Fim do metodo2"); // comentado para o exemplo compilar.
+		System.out.println("Fim do metodo2");
 	}
 }
