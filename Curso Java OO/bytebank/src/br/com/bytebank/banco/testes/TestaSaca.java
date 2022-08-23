@@ -1,4 +1,7 @@
-package bytebank;
+package br.com.bytebank.banco.testes;
+
+import br.com.bytebank.banco.modelo.Conta;
+import br.com.bytebank.banco.modelo.SaldoInsuficienteException;
 
 public class TestaSaca {
 

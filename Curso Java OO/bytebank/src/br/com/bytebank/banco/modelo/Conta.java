@@ -1,4 +1,4 @@
-package bytebank;
+package br.com.bytebank.banco.modelo;
 
 public class Conta {
 	private double saldo;
@@ -9,6 +9,15 @@ public class Conta {
 	
 	//constructor
 	public Conta(int agencia, int numeroCC) {
+		
+		if(agencia < 1) {
+            throw new IllegalArgumentException("Agência inválida");
+        }
+
+        if(numeroCC < 1) {
+            throw new IllegalArgumentException("Numero da conta inválido");
+        }
+        
 		this.agencia = agencia;
 		this.numeroCC = numeroCC;
 		this.saldo = 100;//conta nova inicia com $100.

@@ -1,4 +1,7 @@
-package bytebank;
+package br.com.bytebank.banco.testes;
+
+import br.com.bytebank.banco.modelo.Cliente;
+import br.com.bytebank.banco.modelo.Conta;
 
 public class ContaTeste {
 	public static void main(String[] args) {

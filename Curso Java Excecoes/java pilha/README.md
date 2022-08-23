@@ -11,6 +11,10 @@
 - Tratar múltiplas exceções com mais de um bloco catch ou usando *Multi-Catch* utilizando o *pipe* (**`|`**).
 - Como lançar exceções com throw.
 - Como atribuir uma mensagem à exceção passando-a como parâmetro do construtor da exceção.
-- como criar um bloco `catch` genérico usando a classe `Exception`;
-- como criar uma exceção nova `SaldoInsuficienteException`;
-- como transformar a exceção em *checked* ou *unchecked*.
+- Como criar um bloco `catch` genérico usando a classe `Exception`.
+- Como criar uma exceção nova `SaldoInsuficienteException`.
+- Como transformar a exceção em *checked* ou *unchecked*.
+- Que existe um bloco `finally`, útil para o fechamento de recursos (como conexões por exemplo).
+ - Quando há um bloco `finally` o bloco `catch` é opcional.
+ - Que o bloco `finally` é sempre executado, sem ou com exceção.
+ - Como usar o *try-with-resources* (forma mais moderna de try/catch pós versão 7 do Java).

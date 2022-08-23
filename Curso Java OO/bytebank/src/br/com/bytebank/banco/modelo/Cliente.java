@@ -1,4 +1,4 @@
-package bytebank;
+package br.com.bytebank.banco.modelo;
 
 public class Cliente {
 	private String nome;
