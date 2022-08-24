@@ -14,3 +14,17 @@
   - `protected` (visível na classe E em qualquer outro membro do mesmo pacote E para qualquer filho).
   - `public` (visível em qualquer pacote).
 - Os modificadores podem ser usados na definição da classe, atributo, construtor e método.
+- Comentários e tags (anotações) para definir o *javadoc*.
+- Como gerar o *javadoc* no Eclipse.
+- Que *javadoc* é uma documentação para desenvolvedores.
+- Que as classes Java padrão também usam *javadoc*.
+- Como criar nossa própria biblioteca através do JAR (**J**ava **AR**chive).
+- Como importar a biblioteca no novo projeto.
+- Como criar um JAR executável.
+
+- O *package* `java.lang` é o único pacote que não precisa ser importado, nele tem classes fundamentais que qualquer aplicação precisa, como a classe `String` e `System`.
+- Objetos da classe `String` são imutáveis e usamos uma sintaxe literal para criar (*object literal*).
+- Qualquer método de alteração da classe `String` devolve uma nova `String` que representa a alteração (e deve ser guardada em uma variável).
+- A classe `String` é uma `CharSequence`.
+- Se precisarmos concatenar muitas `String` devemos usar a classe `StringBuilder`.
+- Vimos vários métodos da classe **String** como `trim`, `charAt`, `contains`, `isEmpty`, `length`, `indexOf`, `replace`.
