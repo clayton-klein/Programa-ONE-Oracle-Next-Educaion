@@ -1,0 +1,37 @@
+Assuntos abordados neste curso:
+
+- Treinar algoritmos;
+- Definir características (features) do que desejamos classificar;
+- Classificar em categorias;
+- Utilizar o módulo **linearSVC** e **accuracy_score**;
+- Utilizar o método **fit**;
+- Prever dados com a função **predict**;
+- Calcular a taxa de acerto do modelo;
+- Comparar testes e previsões;
+- Utilizar a função **soma**;
+- Padronizar variáveis;
+- Abrir arquivo CSV;
+- Imprimir as primeiras linhas com a função *head*;
+- Renomear as colunas;
+- Utilizar a função **shape** para ver a quantidade de elementos;
+- Separar dados para treino e teste;
+- Definir a ordem para os números aleatórios;
+- Utilizar a função **value_counts**;
+- Trocar valores;
+- Usar a biblioteca seaborn;
+- Gerar um gráfico com dados do CSV;
+- Definir cores no gráfico;
+- Gerar gráficos distintos;
+- Criação de um algoritmo base;
+- Capturar os valores mínimos e máximos;
+- Utilizar a função **arange** do numpy;
+- Utilizar o módulo Support Vector Machine; 
+- Gerar valores randômicos com o módulo SVC;
+- Utilizar o módulo Standard Scale;
+- Alterar dados em colunas;
+- Utilizar o módulo datetime;
+- Criar colunas;
+- Remover  colunas e linhas;
+- Utilizar o módulo dummie para gerar colunas;
+- Utilizar o módulo graphviz para gerar gráficos;
+- Definir propriedades gráficas na árvore de decisão.
